@@ -4,7 +4,7 @@ A simple web application built with Flask (Python) that allows users to write bl
 ### Features
 - Create, edit, and delete blog posts
 - Register and log in users
-- Ask and answer questions (Q&A section)\
+- Ask and answer questions (Q&A section)
 
 ### ⚙️ Tech Stack
 - Flask
@@ -12,6 +12,7 @@ A simple web application built with Flask (Python) that allows users to write bl
 - HTML, CSS, Jinja2 Templates
 
 ### General
-Simple UI built with HTML & CSS
-Secure password hashing using Werkzeug
-SQLite database with SQLAlchemy ORM
+- Simple UI built with HTML & CSS
+- Secure password hashing using Werkzeug
+- To create forms flask-wtf
+- SQLite database with SQLAlchemy ORM
