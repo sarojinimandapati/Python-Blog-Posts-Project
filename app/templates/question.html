@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="questions">
+		<h2>Add a New Question</h2>
+		<form method="POST">
+			<p>
+				<label>Question:</label><br>
+				<input type="text" name="content" required style="width:100%; padding:8px;">
+			</p>
+			<p>
+				<label>Answer:</label><br>
+				<textarea name="answer" rows="6" required style="width:100%; padding:10px;"></textarea>
+			</p>
+			<button type="submit" style="background-color:#d64161; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer;">Add Question</button>
+		</form>
+	</div>
+	<hr>
+	<div styel="margin-top:15px;">
+		{% for q in questions %}
+		<div style="margin-bottom:15px;padding:10px; background-color:#f9f9f9; border-radius:8px;">
+			<strong>{{ q.content }}</strong><br>
+			<em>{{ q.answer }}</em>
+		</div>
+		{% else %}
+		<p>No questions yet!</p>
+		{% endfor %}
+	</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span class="title"><h2>{% block title %} You can view the list of posts {% endblock %}</h2></span>
+    <div class="content">
+		{% if posts %}
+			{% for post in posts %}
+				<div class="post">
+					<b><a href="{{ url_for('main.post', post_id=post.id) }}">{{ post.title }}</a></b>
+					<p class="body">{{ post.content[:150] }}</p>
+					<small>Posted by {{ post.author.username }} on {{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+					{% if session.get('user_id') == post.user_id %}
+						<p>
+							<a href="{{ url_for('main.edit', post_id=post.id) }}">Edit</a> |
+							<a href="{{ url_for('main.delete', post_id=post.id) }}" onclick="return confirm('Are you sure?')">Delete</a>
+						</p>
+					{% endif %}
+				</div>
+				<hr>
+			{% endfor %}
+		{% else %}
+			<p>No posts yet!</p>
+		{% endif %}
+    </div>
+{% endblock %}

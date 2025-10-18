@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="content">
+        <h2>Edit the post</h2>
+		<form method="POST">
+			{{ form.hidden_tag() }}
+			<div>
+				<label style="display:block; margin-bottom:5px; font-weight:600;">{{ form.title.label }}</label>
+				{{ form.title(rows=6, cols=50, style="width:100%;
+				padding:8px; border:1px solid #ccc; border-radius:5px; font-size:1em; resize:vertical;") }}
+			</div>
+			<br>
+			<div>
+				<label style="display:block; margin-bottom:5px; font-weight:600;" >{{ form.content.label }}</label>
+				{{ form.content(rows=6, cols=50, style="width:100%; padding:8px;
+				border:1px solid #ccc; border-radius:5px; font-size:1em; resize:vertical;") }}
+			</div>
+
+			{{ form.submit() }}
+		</form>
+		<p style="margin-top: 250px;">
+			<a href="{{ url_for('main.post', post_id=post.id) }}">Back to Post</a>
+		</p>
+	</div>
+{% endblock %}
